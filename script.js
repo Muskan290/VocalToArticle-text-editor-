@@ -1,8 +1,8 @@
 let button = document.querySelectorAll(".buttons");
 
-let fontName = document.getElementById("font-name-button");
-let fontSizeRef = document.getElementById("font-size-button");
-let writingArea = document.getElementById("content");
+let fontName = document.getElementById("fontName");
+let fontSizeRef = document.getElementById("fontSize");
+let writingArea = document.getElementById("text-input");
 
 let alignButtons = document.querySelectorAll(".align");
 let formatButtons = document.querySelectorAll(".format");
@@ -76,3 +76,11 @@ const highlightActiveButtons = (buttonType, autoRemove) => {
     })
   }
   window.onload = initializer();
+const modifyText = (command,defaultUi,value) =>{
+    document.execCommand(command,defaultUi,value);
+}
+button.forEach((specificbutton) =>{
+    specificbutton.addEventListener("click", () =>{
+        modifyText(specificbutton.id,false, null);
+    })
+})
