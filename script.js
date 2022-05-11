@@ -17,15 +17,16 @@ let fontlist = [
     "Courier New",
     "cursive"
 ]
-const initiliaser = () =>{
-    highlighter(alignButtons, true);
-    highlighter(formatButtons, true);
-    highlighter(scriptButtons, true);
-  
-  }
+const initializer = () =>{
+  highlighter(alignButtons, true);
+  highlighter(formatButtons, false);
+  highlighter(scriptButtons, true);
+}
+
 const highlighter = (className, needsRemoval) => {
     className.forEach((button) => {
       button.addEventListener("click", () => {
+          console.log("clicked");
         //needsRemoval = true means only one button should be highlight and other would be normal
         if (needsRemoval) {
           let alreadyActive = false;
@@ -52,3 +53,4 @@ const highlighter = (className, needsRemoval) => {
         button.classList.remove("active");
     })
   }
+  window.onload = initializer();
