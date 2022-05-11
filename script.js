@@ -3,9 +3,11 @@ let button = document.querySelectorAll(".buttons");
 let fontName = document.getElementById("font-name-button");
 let fontSizeRef = document.getElementById("font-size-button");
 let writingArea = document.getElementById("content");
+
 let alignButtons = document.querySelectorAll(".align");
 let formatButtons = document.querySelectorAll(".format");
 let scriptButtons = document.querySelectorAll(".script");
+
 let fontlist = [
     "Arial",
     "Verdana",
@@ -16,11 +18,11 @@ let fontlist = [
     "cursive"
 ]
 const initiliaser = () =>{
-  highlighter(alignButtons, true);
-  highlighter(formatButtons, true);
-  highlighter(scriptButton, true);
-
-}
+    highlighter(alignButtons, true);
+    highlighter(formatButtons, true);
+    highlighter(scriptButtons, true);
+  
+  }
 const highlighter = (className, needsRemoval) => {
     className.forEach((button) => {
       button.addEventListener("click", () => {
@@ -44,3 +46,9 @@ const highlighter = (className, needsRemoval) => {
       });
     });
   };
+  const highlighterRemover = (className) =>{
+
+    className.forEach((button) =>{
+        button.classList.remove("active");
+    })
+  }
